@@ -5,6 +5,7 @@
  */
 package ut2_a2;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
 /**
@@ -14,4 +15,5 @@ import javax.swing.JFrame;
 public class VentanaPrincipal extends JFrame{
     
     JButton botonGridBagLayout;
+    JButton botonGridLayout;
 }
