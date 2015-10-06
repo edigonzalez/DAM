@@ -5,10 +5,12 @@
  */
 package ut2_a2;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Eduardo
  */
-public class VentanaPrincipal {
+public class VentanaPrincipal extends JFrame{
     
 }
