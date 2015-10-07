@@ -33,7 +33,7 @@ public class VentanaPrincipal extends JFrame{
        this.setTitle("UT2_A2");
        
        Container lienzo = this.getContentPane();
-       
+       /*** CONSTRUIMOS EL PANEL ***/
        p = new JPanel();
        p.setLayout(new GridBagLayout());
        
@@ -76,7 +76,9 @@ public class VentanaPrincipal extends JFrame{
        pFormato.gridwidth=1; // ancho en columnas.. (ocupa dos columnas) 
        pFormato.weighty=0.2; // separacion extra vertical
        p.add(botonSalir,pFormato);
+       /**********************/
        
+       /*** AÑADIMOS EL PANEL A LA VENTANA ****/
        lienzo.add(p);
        
        this.setDefaultCloseOperation (WindowConstants.EXIT_ON_CLOSE);  // ESTO ES PARA QUE PARE EL PROGRAMA CUANDO SE CIERRE LA VENTANA */
