@@ -30,14 +30,24 @@ public class VentanaPrincipal extends JFrame{
     private final JLabel etiqueta;
     private final JPanel p;
     
-    private void HacerBotonSalir() // ejecutar cuando se intenta salir del programa
-      {
-       if (JOptionPane.showConfirmDialog(null, "¿ Seguro que quiere cerrar ventana y parar programa?", "Salir del programa",  JOptionPane.YES_NO_OPTION)  
+    private void HacerBotonSalir(){ // ejecutar cuando se intenta salir del programa
+   
+       if (JOptionPane.showConfirmDialog(null, "¿Seguro que quiere cerrar el programa?", "Salir del programa",  JOptionPane.YES_NO_OPTION)  
              !=  JOptionPane.YES_OPTION)     return; // si no confirma nos vamos...
      
-         System.exit(0);//nos vamos...
+                System.exit(0);//nos vamos...
          
-      };
+    };
+    
+    private void ejecutaGridLayout(){
+        VentanaGridLayout vGridlayout = new VentanaGridLayout();
+        vGridlayout.setVisible(true); 
+    }
+    
+    private void ejecutaGridBagLayout(){
+        VentanaGridBagLayout vGridBaglayout = new VentanaGridBagLayout();
+        vGridBaglayout.setVisible(true); 
+    }
     
    public VentanaPrincipal(){
        this.setSize(300,140);
@@ -71,7 +81,17 @@ public class VentanaPrincipal extends JFrame{
        pFormato.gridwidth=1; // ancho en columnas.. (ocupa dos columnas) 
        pFormato.weighty=0.2; // separacion extra vertical
        pFormato.insets = new Insets(3, 3, 3, 3);
+       
+       ActionListener actionListenerParaGridLayout;   // creamos un actionlistener para el boton 
+       actionListenerParaGridLayout = new ActionListener(){
+            @Override
+            public void actionPerformed( ActionEvent evento) {
+                ejecutaGridLayout();
+            } // llamamos al metodo de la clase ventanaPrincipal que nos lo va a controlar
+        };                         
+       botonGridLayout.addActionListener(actionListenerParaGridLayout); // que hacer si pincamos aqui..     
        p.add(botonGridLayout, pFormato);
+       
        
        botonGridBagLayout = new JButton();
        botonGridBagLayout.setText("GridBagLayout");
@@ -79,6 +99,16 @@ public class VentanaPrincipal extends JFrame{
        pFormato.gridx=1; // posicion x  = primera columna
        pFormato.gridwidth=1; // ancho en columnas.. (ocupa dos columnas) 
        pFormato.weighty=0.2; // separacion extra vertical;
+       
+       ActionListener actionListenerParaGridBagLayout;   // creamos un actionlistener para el boton 
+       actionListenerParaGridBagLayout = new ActionListener(){
+            @Override
+            public void actionPerformed( ActionEvent evento) {
+                ejecutaGridBagLayout();
+            } // llamamos al metodo de la clase ventanaPrincipal que nos lo va a controlar
+        };                         
+       botonGridBagLayout.addActionListener(actionListenerParaGridBagLayout); // que hacer si pincamos aqui..
+       
        p.add(botonGridBagLayout,pFormato);
        
        fila++;
@@ -89,17 +119,17 @@ public class VentanaPrincipal extends JFrame{
        pFormato.gridwidth=1; // ancho en columnas.. (ocupa dos columnas) 
        pFormato.weighty=0.2; // separacion extra vertical
        
-       ActionListener actionListenerParaSalir;
-       actionListenerParaSalir = new ActionListener(){
+       ActionListener actionListenerParaSalir; // creamos un actionlistener para el boton 
+       actionListenerParaSalir = new ActionListener(){ 
             @Override
             public void actionPerformed(ActionEvent evento){ 
                 HacerBotonSalir(); 
             } // llamamos al metodo de la clase ventanaPrincipal que nos lo va a controlar
-        };      
-                                     
-       botonSalir.addActionListener( actionListenerParaSalir); // que hacer si pincamos aqui..
-       
-       p.add(botonSalir,pFormato);
+        };   
+             
+        botonSalir.addActionListener( actionListenerParaSalir); // que hacer si pincamos aqui..
+        
+        p.add(botonSalir,pFormato);
        /**********************/
        
        /*** AÑADIMOS EL PANEL A LA VENTANA ****/

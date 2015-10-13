@@ -1,0 +1,3 @@
+Juan,clave1,Cliente
+Pepe,clave2,Proveedor
+Eduardo,1234,Administrador
