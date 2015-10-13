@@ -9,9 +9,12 @@ import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
@@ -27,10 +30,20 @@ public class VentanaPrincipal extends JFrame{
     private final JLabel etiqueta;
     private final JPanel p;
     
+    private void HacerBotonSalir() // ejecutar cuando se intenta salir del programa
+      {
+       if (JOptionPane.showConfirmDialog(null, "¿ Seguro que quiere cerrar ventana y parar programa?", "Salir del programa",  JOptionPane.YES_NO_OPTION)  
+             !=  JOptionPane.YES_OPTION)     return; // si no confirma nos vamos...
+     
+         System.exit(0);//nos vamos...
+         
+      };
+    
    public VentanaPrincipal(){
        this.setSize(300,140);
        this.setLocation(500,100);
-       this.setTitle("UT2_A2");
+       this.setResizable(false);
+       this.setTitle("EDUARDO_UT2_A2");
        
        Container lienzo = this.getContentPane();
        /*** CONSTRUIMOS EL PANEL ***/
@@ -75,6 +88,17 @@ public class VentanaPrincipal extends JFrame{
        pFormato.gridx=1; // posicion x  = primera columna
        pFormato.gridwidth=1; // ancho en columnas.. (ocupa dos columnas) 
        pFormato.weighty=0.2; // separacion extra vertical
+       
+       ActionListener actionListenerParaSalir;
+       actionListenerParaSalir = new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent evento){ 
+                HacerBotonSalir(); 
+            } // llamamos al metodo de la clase ventanaPrincipal que nos lo va a controlar
+        };      
+                                     
+       botonSalir.addActionListener( actionListenerParaSalir); // que hacer si pincamos aqui..
+       
        p.add(botonSalir,pFormato);
        /**********************/
        
