@@ -41,9 +41,9 @@ public class Verificador {
                     usuarioAutenticado = capturarDatos[0];
                     usuarioAutenticadoPerfil = capturarDatos[2];
                 }
-               
             }
             if (!flag){
+                flag=false;
                 JOptionPane.showMessageDialog(null, "¡DATOS DE ACCESO INCORRECTOS!"); 
             }
             bf.close();

@@ -36,20 +36,19 @@ public class VentanaGridBagLayout extends JDialog{
     JButton botonAcceso, botonCancelar;
     JPanel panelGridBagLayout;
     String[] perfilStrings = {"Perfil...", "Cliente", "Proveedor", "Administrador"};
+    int tipo=1; //para indicar que es un gridbaglayout a postacceso
     
     private void ejecutaCancelar(){
         dispose();
     }
     
-    private void limpiarCampos(){
+    public void limpiarCampos(){
         this.usuario.setText(null);
         this.contraseña.setText(null);
         this.comboPerfil.setSelectedIndex(0);
     }
     
     private void ejecutaAcceso() throws IOException{
-        
-        int tipo=1;
 
         if ("".equals(this.usuario.getText()) || "".equals(this.contraseña.getText()) || "Perfil...".equals(this.comboPerfil.getSelectedItem().toString())){
             JOptionPane.showMessageDialog(null, "Introduzca Usuario, Contraseña y Perfil de acceso");
@@ -67,10 +66,10 @@ public class VentanaGridBagLayout extends JDialog{
     }
     
     public VentanaGridBagLayout(){
-        this.setSize(250,170); // tamaño de la ventana
+        this.setSize(300,170); // tamaño de la ventana
         this.setLocation(350,200);// posicion 
         this.setResizable(false);  //evitamos el cambio de tamaño
-        this.setTitle("EDUARDO_UT2_A2 ACCESO");
+        this.setTitle("EDUARDO_UT2_A2 ACCESO GRIDBAGLAYOUT");
         
         Container lienzo = this.getContentPane();
         panelGridBagLayout = new JPanel();
