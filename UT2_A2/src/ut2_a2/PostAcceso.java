@@ -5,10 +5,8 @@
  */
 package ut2_a2;
 
-import java.awt.Color;
 import java.awt.Container;
 import java.awt.FlowLayout;
-import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 

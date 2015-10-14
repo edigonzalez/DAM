@@ -22,7 +22,7 @@ public class Verificador {
 
     
     public Verificador (String usuario, String password, String perfil) throws FileNotFoundException, IOException{
-        File fichero = new File ("config.txt");
+        File fichero = new File ("config.csv");
         String linea;
         String[] capturarDatos = null;
         
