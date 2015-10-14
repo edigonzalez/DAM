@@ -59,6 +59,7 @@ public class VentanaGridBagLayout extends JDialog{
             Verificador controlAcceso = new Verificador (this.usuario.getText(), this.contraseña.getText(), this.comboPerfil.getSelectedItem().toString());
             if (controlAcceso.flag){
                 PostAcceso vPostAcceso = new PostAcceso(Verificador.usuarioAutenticado, Verificador.usuarioAutenticadoPerfil, tipo);
+                Verificador.flag=false;
                 vPostAcceso.setVisible(true);
                 limpiarCampos();
             }

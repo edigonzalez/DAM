@@ -34,16 +34,17 @@ public class Verificador {
             FileReader ficheroClaves = new FileReader(fichero);
             BufferedReader bf = new BufferedReader(ficheroClaves);
             
-            while ( (linea = bf.readLine() ) != null){   
+            while ( (linea = bf.readLine() ) != null){
                capturarDatos = linea.split(",");
                if (capturarDatos[0].equalsIgnoreCase(usuario) && capturarDatos[1].equals(password) && capturarDatos[2].equals(perfil)){
                     flag = true; //Damos el ok al login porque los datos de acceso son correctos
                     usuarioAutenticado = capturarDatos[0];
                     usuarioAutenticadoPerfil = capturarDatos[2];
                 }
+               
             }
             if (!flag){
-                JOptionPane.showMessageDialog(null, "¡DATOS DE ACCESO INCORRECTOS!");  
+                JOptionPane.showMessageDialog(null, "¡DATOS DE ACCESO INCORRECTOS!"); 
             }
             bf.close();
             ficheroClaves.close();
