@@ -19,5 +19,4 @@ public class UT2_A2 {
         VentanaPrincipal ventana = new VentanaPrincipal();
         ventana.setVisible(true);
     }
-    
 }
